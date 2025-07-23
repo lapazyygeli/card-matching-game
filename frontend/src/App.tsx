@@ -1,9 +1,7 @@
+import { Menu } from './pages/Menu'
+
 function App() {
-  return (
-    <div>
-      <h1>Hi there!</h1>
-    </div>
-  )
+  return <Menu />
 }
 
 export default App
