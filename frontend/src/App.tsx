@@ -1,7 +1,8 @@
-import { Menu } from './pages/Menu'
+import { RouterProvider } from 'react-router'
+import { router } from './routes.tsx'
 
 function App() {
-  return <Menu />
+  return <RouterProvider router={router} />
 }
 
 export default App

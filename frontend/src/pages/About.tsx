@@ -3,12 +3,12 @@ import { Link } from 'react-router'
 
 export function About() {
   return (
-    <div className="h-full bg-gray-50 font-mono">
+    <div className="h-full bg-gray-200 font-mono">
       <h2 className="text-2xl text-center text-green-600 font-semibold py-[6vh]">
         About
       </h2>
       <div className="flex justify-center text-gray-700">
-        <div className="max-w-80 sm:max-w-2xl p-6 sm:p-8 bg-white border-gray-200 border-1">
+        <div className="max-w-80 sm:max-w-2xl p-6 sm:p-8 bg-white border-gray-300 border-1">
           <p className="pb-8 leading-relaxed first-letter:text-2xl first-letter:font-light">
             Welcome to the Memory card game! Test your focus and memory by
             flipping cards and finding matching pairs. It’s simple, addictive,

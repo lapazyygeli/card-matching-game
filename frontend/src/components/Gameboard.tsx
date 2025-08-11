@@ -20,7 +20,7 @@ export function Gameboard() {
             <p>Attempts left:</p>
             <p>Elapsed time:</p>
           </div>
-          <div className="grid gap-4 justify-center grid-cols-[repeat(2,80px)] sm:grid-cols-[repeat(4,90px)]">
+          <div className="grid gap-4 justify-center grid-cols-[repeat(auto-fill,_minmax(80px,_1fr))] ">
             {avatars.map((avatar, i) => (
               <div className="aspect-square" key={i}>
                 <Card avatar={avatar} />
