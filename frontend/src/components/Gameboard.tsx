@@ -1,32 +1,33 @@
-import { Card } from './Card'
+import { useState } from 'react'
+import { CardList } from './CardList'
+import { getRandomCards } from '../utils/cards'
 
-type ImageModuleNamespaceObject = { default: string }
-const avatarModules = import.meta.glob<ImageModuleNamespaceObject>(
-  // The <Type> syntax tells the compiler
-  // what the types of the object’s values are.
-  '../assets/cards/*.png',
-  { eager: true }
-)
-const avatars = Object.values(avatarModules).map(
-  (modNamespaceObj) => modNamespaceObj.default
-)
+export function Gameboard({}) {
+  // const [cardCount, (setCardCount)] = tähä custom hook,
+  // joka hakee sen Optionsseista
+  const cardCount = 10
 
-export function Gameboard() {
+  const [cards, setCards] = useState(() => {
+    return getRandomCards(cardCount)
+  })
+
+  const openCard = (id: number) => {
+    setCards((prev) => {
+      return prev.map((card) =>
+        card.id === id ? { ...card, isOpen: true } : card
+      )
+    })
+  }
+
   return (
     <div>
       <div className="flex justify-center py-8">
         <div className="w-full max-w-2xl p-4 bg-white">
           <div className="flex gap-4 mr-2 justify-end pb-6 text-[0.8rem]">
-            <p>Attempts left:</p>
-            <p>Elapsed time:</p>
+            <p className=" text-gray-700">Attempts left:</p>
+            <p className="text-gray-700">Elapsed time:</p>
           </div>
-          <div className="grid gap-4 justify-center grid-cols-[repeat(auto-fill,_minmax(80px,_1fr))] ">
-            {avatars.map((avatar, i) => (
-              <div className="aspect-square" key={i}>
-                <Card avatar={avatar} />
-              </div>
-            ))}
-          </div>
+          <CardList cards={cards} openCard={openCard} />
         </div>
       </div>
     </div>
