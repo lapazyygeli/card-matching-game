@@ -1,14 +1,12 @@
 import { useState } from 'react'
 import { CardList } from './CardList'
 import { getRandomCards } from '../utils/cards'
+import { useOptions } from '../contexts/OptionsContext'
 
 export function Gameboard({}) {
-  // const [cardCount, (setCardCount)] = tähä custom hook,
-  // joka hakee sen Optionsseista
-  const cardCount = 10
-
+  const [options] = useOptions()
   const [cards, setCards] = useState(() => {
-    return getRandomCards(cardCount)
+    return getRandomCards(options.cardCount)
   })
 
   const openCard = (id: number) => {
