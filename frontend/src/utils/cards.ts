@@ -24,8 +24,10 @@ export type Card = {
   isOpen: boolean
 }
 export function getRandomCards(count: number): Card[] {
-  const randomAvatars = getRandomAvatars(count)
-  return randomAvatars.map((avatar, i) => ({
+  const randomAvatars = getRandomAvatars(count / 2)
+  const pairedAvatars = [...randomAvatars, ...randomAvatars]
+  const shuffled = pairedAvatars.sort(() => 0.5 - Math.random())
+  return shuffled.map((avatar, i) => ({
     id: i,
     avatar,
     isOpen: false,
