@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { useOptions } from '../contexts/optionsContext'
+import { useOptions } from '../contexts/OptionsContext'
 
 export function Options() {
   const [options, setOptions] = useOptions()

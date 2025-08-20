@@ -1,6 +1,6 @@
 import { RouterProvider } from 'react-router'
 import { router } from './routes.tsx'
-import { OptionsContextProvider } from './contexts/optionsContext.tsx'
+import { OptionsContextProvider } from './contexts/OptionsContext.tsx'
 
 function App() {
   return (
